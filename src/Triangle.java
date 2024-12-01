@@ -1,15 +1,15 @@
-
+import java.text.DecimalFormat;
 class Triangle
 {
 	
 	public static void main(String[] args)
 	{
-		//double a = cosBerechnen(30, 12);
 		double g = tanBerechnen(30, 12);
+		DecimalFormat df = new DecimalFormat("#.##");
 		
 		double x = toRadian(4.0), y= Math.toRadians(4.0); 
 		System.out.printf("X: %f, Y: %f", x, y);
-		System.out.printf("\nDie Höhe des Baums ist %f", g);
+		System.out.printf("\nDie Höhe des Baums ist %s",  df.format(g));
 		
 		/*
 		
@@ -18,10 +18,13 @@ class Triangle
 		/ / /
 		H H A 
 		
+		Für die Aufgabe:
+		
 		Gegenkathete / Ankathete  = tan(alpha) | * Hypotenuse
 		tan(alpha) * Ankathete = Gegenkathete 
 		
 		*/
+		
 	}
 	
 	static double toRadian(double degree)
