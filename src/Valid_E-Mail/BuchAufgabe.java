@@ -45,7 +45,7 @@ public class Buch
 	
 }
 
-class BuchTest
+class BuchAufgabe
 {
 	public static void main(String[] args)
 	{

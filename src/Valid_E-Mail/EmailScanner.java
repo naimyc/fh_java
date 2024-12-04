@@ -10,6 +10,7 @@ class EmailScanner
 		//String emailStr = JOptionPane.showInputDialog("Insert your email");
 		
 		String emailStr = sc.next();
+		
 		boolean validMail = checkAts(emailStr);
 		
 		if(validMail)
@@ -18,15 +19,19 @@ class EmailScanner
 	
 	static boolean checkAts(String email)
 	{
-		Scanner scAt = new Scanner(email).useDelimiter("@");
+		// Scanner scAt = new Scanner(email).useDelimiter("@");
 		
 		int atsIncluded = 0;
 		boolean validMail = true;
 		
-		while(scAt.hasNext()){
-			scAt.next();
-			atsIncluded++;
+		char[] emailChars = email.toCharArray();
+		
+		for(int i = 0; i < emailChars.length; i++)
+		{
+			if(emailChars[i] == '@')
+				atsIncluded++;
 		}
+		
 		if(atsIncluded == 0)
 			throw new Error("Invalid E-Mail: Add an \'@\' to your E-Mail!");
 		else if(atsIncluded > 1)
@@ -37,16 +42,15 @@ class EmailScanner
 	static String[] checkMail(String email)
 	{
 		Scanner scAt = new Scanner(email).useDelimiter("@");
+		
 		boolean checkBochum = email.contains("bochum");
 		String[] mailData = new String[3];
 		
 		if(email.endsWith("@") || email.startsWith("@"))
 			throw new Error("Invalid E-Mail: E-Mail cannot start or end with @");
 		
-		String vorMail = sc.next();
-		sc.next();
-		
-		String nachMail = sc.next();
+		String vorMail = scAt.next();
+		String nachMail = scAt.next();
 		
 		System.out.printf("Vor der Email: %s\nNach der Email: %s\n", vorMail, nachMail);
 		
