@@ -34,7 +34,7 @@ class OrderNames
 		
 		if(name01.compareTo(name02) < 0)
 			System.out.println("Erste Name ist größer!");
-		else if(name01.compareTo(name01) < 0)
+		else if(name02.compareTo(name01) < 0)
 			System.out.println("Zweite Name ist größer!");
 		else
 			System.out.println("Namen sind gleich!");
@@ -44,34 +44,30 @@ class OrderNames
 		
 		int[] difference = compareNames(name01, name02);
 		
-		for(int e : difference)
-			System.out.println(e);
 	}
 	static void orderNames(String name01, String name02)
 	{
 		
 	}
-	static int[] compareNames(String name01, String name02)
+	static int compareNames(String name01, String name02)
 	{
 		char[] name01Arr = name01.toCharArray();
 		char[] name02Arr = name02.toCharArray();
 		
-		int [] difference = new int[2];
+		int differencePos = -1;
+		
+		int min = Math.min(name01Arr.length, name02Arr.length);
 		
 		LABEL:
-		for(int i = 0; i < name01Arr.length; i++)
+		for(int i = 0; i < min; i++)
 		{
-			for(int j = 0; j < name02Arr.length; j++)
-			{
-				if(name01Arr[i] != (name02Arr[j]))
+				if(name01Arr[i] != (name02Arr[i]))
 				{
-					difference[0] = i;
-					difference[1] = j;
+					differencePos = i;
 					break LABEL;
 				}
-			}
 		}
 		
-		return difference;
+		return differencePos;
 	}
 }
