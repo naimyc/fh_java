@@ -1,13 +1,56 @@
-import javax.swing.*;
+package com;
 
-class Rechteck
-{
-	double a, b, c, d;
+import javax.swing.JOptionPane;
+
+public class Rechteck {
 	
-	Rechteck()
+	private double a, b;
+	
+	void set(double aWert, double bWert)
 	{
-		this.a = JOptionPane.showInputDialog("Geben Sie eine Seitenlaenge des Rechtecks ein:");
-		this.b = JOptionPane.showInputDialog("Geben Sie eine Seitenlaenge des Rechtecks ein:");
+		a = aWert;
+		b = bWert;
 	}
 	
+	public double getA()
+	{
+		return a;
+	}
+	public double getB()
+	{
+		return b;
+	}
+	
+	int summe(int x, int y)
+	{
+		return x + y;
+	}
+	
+	public boolean isQuadrat()
+	{
+		if(a == b)
+			return true;
+		else 
+			return false;
+	}
+	
+	public String getInhalt()
+	{
+		double a = inhalt();
+		return "Der Flächeninhalt ist " + inhalt();
+	}
+
+	double inhalt() {
+		double i;
+		i = a * b;
+		
+		return i;
+	}
+
+	double diagonale() {
+		double d;
+		d = Math.sqrt(a * a + b * b);
+		
+		return d;
+	}
 }
